@@ -16,7 +16,9 @@ class BookList extends React.Component {
     const books = this.props.books || [];
 
     return books.map(book => (
-      <li key={book.title} className="list-group-item">{book.title}</li>
+      <li key={book.title} className="list-group-item" onClick={() => this.props.selectBook(book)}>
+        {book.title}
+      </li>
     ))
   }
 }

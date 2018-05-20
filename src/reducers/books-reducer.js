@@ -1,8 +1,8 @@
 export default () => {
   return [
-    {title: 'Foo'},
-    {title: 'Bar'},
-    {title: 'Baz'},
-    {title: 'Something'},
+    {title: 'Foo', pages: 100},
+    {title: 'Bar', pages: 200},
+    {title: 'Baz', pages: 500},
+    {title: 'Something', pages: 426},
   ]
 }
