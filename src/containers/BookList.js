@@ -15,16 +15,23 @@ class BookList extends React.Component {
   renderList() {
     const books = this.props.books || [];
 
+
     return books.map(book => (
-      <li key={book.title} className="list-group-item" onClick={() => this.props.selectBook(book)}>
+      <li key={book.title} className={this.generateBookClass(book)} onClick={() => this.props.selectBook(book)}>
         {book.title}
       </li>
     ))
   }
+
+  generateBookClass(book) {
+    const activeBookName = this.props.activeBook ? this.props.activeBook.title : '';
+    return 'list-group-item ' + (activeBookName === book.title ? 'active' : '');
+  }
 }
 
 const mapStateToProps = (state) => ({
-  books: state.books
+  books: state.books,
+  activeBook: state.activeBook
 });
 const mapDispatchToProps = (dispatch) => bindActionCreators({ selectBook }, dispatch);
 
