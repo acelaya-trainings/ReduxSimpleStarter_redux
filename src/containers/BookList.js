@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectBook } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class BookList extends React.Component {
   render () {
@@ -22,5 +24,7 @@ class BookList extends React.Component {
 const mapStateToProps = (state) => ({
   books: state.books
 });
+const mapDispatchToProps = (dispatch) => bindActionCreators({ selectBook }, dispatch);
 
-export default connect(mapStateToProps)(BookList);
+// Promote a books list from a component to a container
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
